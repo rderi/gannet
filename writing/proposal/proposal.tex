@@ -1,0 +1,353 @@
+%%
+%% This is file `main.tex' based on `sample-sigconf.tex' (q.v. for spurce of that,
+%%
+%% IMPORTANT NOTICE:
+%% 
+%% For the copyright see the original source file `sample-sigconf.tex'
+%% in the `Sample' folder.
+%%
+%% For distribution of the original source see the terms
+%% for copying and modification in the file samples.dtx.
+%% 
+%% This generated file may be distributed as long as the
+%% original source files, as listed above, are part of the
+%% same distribution. (The sources need not necessarily be
+%% in the same archive or directory.)
+%%
+%% Commands for TeXCount
+%TC:macro \cite [option:text,text]
+%TC:macro \citep [option:text,text]
+%TC:macro \citet [option:text,text]
+%TC:envir table 0 1
+%TC:envir table* 0 1
+%TC:envir tabular [ignore] word
+%TC:envir displaymath 0 word
+%TC:envir math 0 word
+%TC:envir comment 0 0
+%%
+%%
+%% The first command in your LaTeX source must be the \documentclass command.
+
+%% NOTE that a single column version is required for 
+%% submission and peer review. This can be done by changing
+%% the \doucmentclass[...]{acmart} in this template to 
+%%\documentclass[manuscript,screen,review]{acmart}
+%% This version is used for drafting and final submission
+\documentclass[sigconf]{acmart}
+
+
+
+%% 
+%% To ensure 100% compatibility, please check the white list of
+%% approved LaTeX packages to be used with the Master Article Template at
+%% https://www.acm.org/publications/taps/whitelist-of-latex-packages 
+%% before creating your document. The white list page provides 
+%% information on how to submit additional LaTeX packages for 
+%% review and adoption.
+%% Fonts used in the template cannot be substituted; margin 
+%% adjustments are not allowed.
+
+%%
+%% \BibTeX command to typeset BibTeX logo in the docs
+\AtBeginDocument{%
+  \providecommand\BibTeX{{%
+    \normalfont B\kern-0.5em{\scshape i\kern-0.25em b}\kern-0.8em\TeX}}}
+
+    
+%% Rights management information.  This information is sent to you
+%% when you complete the rights form.  These commands have SAMPLE
+%% values in them; it is your responsibility as an author to replace
+%% the commands and values with those provided to you when you
+%% complete the rights form.
+\setcopyright{acmlicensed}
+\copyrightyear{2024}
+\acmYear{2024}
+\acmDOI{XXXXXXX.XXXXXXX}
+\iffalse
+%% These commands are for a PROCEEDINGS abstract or paper.
+\acmConference[Conference acronym 'XX]{Make sure to enter the correct
+  conference title from your rights confirmation email}{June 03--05,
+  2018}{Woodstock, NY}
+%
+%  Uncomment \acmBooktitle if th title of the proceedings is different
+%  from ``Proceedings of ...''!
+%
+%\acmBooktitle{Woodstock '18: ACM Symposium on Neural Gaze Detection,
+%  June 03--05, 2018, Woodstock, NY} 
+\acmISBN{978-1-4503-XXXX-X/18/06}
+\fi
+
+%%
+%% Submission ID.
+%% Use this when submitting an article to a sponsored event. You'll
+%% receive a unique submission ID from the organizers
+%% of the event, and this ID should be used as the parameter to this command.
+%%\acmSubmissionID{123-A56-BU3}
+
+%%
+%% For managing citations, it is recommended to use bibliography
+%% files in BibTeX format.
+%%
+%% You can then either use BibTeX with the ACM-Reference-Format style,
+%% or BibLaTeX with the acmnumeric or acmauthoryear sytles, that include
+%% support for advanced citation of software artefact from the
+%% biblatex-software package, also separately available on CTAN.
+%%
+%% Look at the sample-*-biblatex.tex files for templates showcasing
+%% the biblatex styles.
+%%
+
+%%
+%% The majority of ACM publications use numbered citations and
+%% references.  The command \citestyle{authoryear} switches to the
+%% "author year" style.
+%%
+%% If you are preparing content for an event
+%% sponsored by ACM SIGGRAPH, you must use the "author year" style of
+%% citations and references.
+%% Uncommenting
+%% the next command will enable that style.
+%%\citestyle{acmauthoryear}
+
+%%
+%% end of the preamble, start of the body of the document source.
+
+%% % Location of your graphics files for figures, here a sub-folder to the main project folder
+\graphicspath{{./images/}} 
+
+
+\begin{document}
+
+
+
+%%
+%% The "title" command has an optional parameter,
+%% allowing the author to define a "short title" to be used in page headers.
+\title{Optimizing Neural Network Hardware Latency and Energy Use with Genetic Algorithms}
+
+%%
+%% The "author" command and its associated commands are used to define
+%% the authors and their affiliations.
+%% Of note is the shared affiliation of the first two authors, and the
+%% "authornote" and "authornotemark" commands
+%% used to denote shared contribution to the research.
+\author{Regina Deri}
+\email{rderi25@amherst.edu}
+\affiliation{%
+  \institution{Amherst College}
+  \city{Amherst}
+  \state{Massachusetts}
+  \country{USA}
+  \postcode{01002}
+}
+
+
+
+%%
+%% By default, the full list of authors will be used in the page
+%% headers. Often, this list is too long, and will overlap
+%% other information printed in the page headers. This command allows
+%% the author to define a more concise list
+%% of authors' names for this purpose.
+\renewcommand{\shortauthors}{Regina Deri}
+
+%%
+%% The abstract is a short summary of the work to be presented in the
+%% article.
+%\begin{abstract}
+  
+%\end{abstract}
+
+%%
+%% The code below is generated by the tool at http://dl.acm.org/ccs.cfm.
+%% Please copy and paste the code instead of the example below.
+%%
+\iffalse
+\begin{CCSXML}
+<ccs2012>
+ <concept>
+  <concept_id>00000000.0000000.0000000</concept_id>
+  <concept_desc>Do Not Use This Code, Generate the Correct Terms for Your Paper</concept_desc>
+  <concept_significance>500</concept_significance>
+ </concept>
+ <concept>
+  <concept_id>00000000.00000000.00000000</concept_id>
+  <concept_desc>Do Not Use This Code, Generate the Correct Terms for Your Paper</concept_desc>
+  <concept_significance>300</concept_significance>
+ </concept>
+ <concept>
+  <concept_id>00000000.00000000.00000000</concept_id>
+  <concept_desc>Do Not Use This Code, Generate the Correct Terms for Your Paper</concept_desc>
+  <concept_significance>100</concept_significance>
+ </concept>
+ <concept>
+  <concept_id>00000000.00000000.00000000</concept_id>
+  <concept_desc>Do Not Use This Code, Generate the Correct Terms for Your Paper</concept_desc>
+  <concept_significance>100</concept_significance>
+ </concept>
+</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Do Not Use This Code~Generate the Correct Terms for Your Paper}
+\ccsdesc[300]{Do Not Use This Code~Generate the Correct Terms for Your Paper}
+\ccsdesc{Do Not Use This Code~Generate the Correct Terms for Your Paper}
+\ccsdesc[100]{Do Not Use This Code~Generate the Correct Terms for Your Paper}
+
+%%
+%% Keywords. The author(s) should pick words that accurately describe
+%% the work being presented. Separate the keywords with commas.
+\keywords{Do, Not, Us, This, Code, Put, the, Correct, Terms, for,
+  Your, Paper}
+
+%% The following are not a requirement, delete if not using
+\received{20 February 2024}  %% inital submission date
+\received[revised]{12 March 2024} %% interim new draft
+\received[accepted]{5 June 2024}  %% publication version
+\fi
+%%
+%% This command processes the author and affiliation and title
+%% information and builds the first part of the formatted document.
+\maketitle
+
+\section{Introduction \& Motivation}
+
+Genetic algorithms can be great tools in finding and optimizing solutions to complex problems, 
+such as those involving design. Previously, they have been successfully used to evolve circuits, 
+antennas, or even hardware modules for quantum computing (for some examples, see Koza et al., 2005). 
+
+Neural network design space exploration also seems to be an area where genetic programming could be fruitfully applied. 
+When developing neural networks, it's often difficult to consider the trade-offs between latency, energy use, and accuracy.
+In this project, I will create a genetic algorithm framework that will optimize the hardware latency and energy use of neural networks. 
+In addition, I aim to analyze the potentials of GA based neural network optimizations by experimenting with both completely new
+and prior models.  
+
+\section{Background \& Related Work}
+
+\subsection{Key definitions}
+\begin{itemize}
+\setlength\itemsep{1em}
+\item[] \emph{Neural networks}: Neural networks is one of the most commonly used machine learning models, inspired by the functioning of the human brain. 
+                                They consist of layers of interconnected neurons that process and transform data.
+                                Neural networks have many applications, such as image recognition, natural language processing, and autonomous vehicles.
+
+\item[] \emph{Genetic algorithms (GAs)}: 
+                                Genetic algorithms are a type of optimization algorithm inspired by the process of natural selection. 
+                                They work by evolving a population of steadily improving solutions over multiple generations, 
+                                using an array of operators such as mutation and crossover.
+                                Genetic algorithms have been successfully used in a variety of domains, such as circuit design, antenna design, and robotics.
+
+\item[] \emph{Design Space Exploration (DSE)}
+                                Design space exploration is the process of exploring the space of possible designs for a given problem, in order to find the best design
+                                according to some metric. Since the process is automatized, it often has the power to reveal insights into design that otherwise would not have been found.
+\setlength\itemsep{0em}
+\end{itemize}
+\subsection{Related work}
+\begin{itemize}
+  \setlength\itemsep{1em}
+  \item[] \emph{\href{https://www.sciencedirect.com/science/article/pii/S1877050921012801?ref=pdf_download&fr=RR-2&rr=868a43d10db70f71}{Domashova et al. 2021}}: Neural networks is one of the most commonly used machine learning models, inspired by the functioning of the human brain. 
+                                  The paper attempts to find optimal architecture for neural networks using genetic algorithms. While the paper doesn't focus on hardware latency and energy use, it provides a good case study for this project.
+  
+  \item[] \emph{\href{https://ieeexplore.ieee.org/document/9360462}{Mei et al. 2022}}: 
+                                  This paper introduces ZigZag, a tool that will be used as an essential part of this project to measure the hardware latency and energy use of candidate solutions.
+  
+  \item[] \emph{\href{https://www.researchgate.net/publication/321021361_Neural_Networks_Optimization_through_Genetic_Algorithm_Searches_A_Review}{Chiroma et al. 2017}}:
+                                  This paper is a review of similar attempts at optimization neural networks with genetic algorithms. It gives a thorough overview of the field, and the referenced papers could prove very useful for my work.
+
+  \item[] \emph{\href{https://link.springer.com/book/10.1007/978-3-662-44874-8}{Eiben et al. 2015}}:
+                                  This book is essentialy a textbook on genetic algorithms. It will be useful when I get to the point of fine-tuning aspects of my genetic algorithm framework, such as survivor selection functions.  
+  
+\end{itemize}
+
+\section{Methods \& Tools}
+
+The project is implementation-heavy, and will involve the creation of a genetic algorithm system 
+that optimizes PyTorch sequential models for hardware latency and energy use. Subsequently, the system will
+be evaluated on Amherst College's High Performance Cluster (HPC), on a diverse selection of existing models and neural networks
+generated from scratch by the genetic algorithm framework itself.
+
+One limitation of my methods is that the measured fitness scores of models will be specific to the hardware/accelerator designs used. I am still looking for a way
+to generalize these results, possibly by using multiple accelerator designs.
+
+Since much of the project involves implementation, there's only a small number of tools that I will use:
+\begin{itemize}
+    \item \emph{Python}: The majority of the project's code will be implemented in Python.
+    \item \emph{PyTorch}: PyTorch is a popular open-source machine learning library for Python. 
+                   It was created by Meta's AI Research lab and is now governed by the PyTorch foundation.
+                   It's one of the most important tools for this project, and will be the tool of choice in creating, training, and evaluating neural networks.
+    \item \emph{ZigZag}: ZigZag is a tool that helps estimate the hardware latency and energy use of neural networks running on a given accelrator design.
+                  It also provides a heuristic mapper to map neural networks to accelerator designs, however, I will mainly use it for the former purpose.
+                  Zigzag was first proposed in a paper by Mei et al. (2021), and has since been a subject of nine other papers. It requires an AI model and an accelerator
+                  design as input, and is able to output the estimated latency and energy use of the model running on the accelerator. It will be called from the genetic algorithm framework
+                  to evaluate the fitness score of the neural networks.
+                   
+\end{itemize}
+
+\section{Preliminary Results or Analysis}
+So far, I have implemented most of my genetic algorithm framework, including genomes, fitness measurement, crossover, mutation, and selection.
+There is still some work left to connect these modules, after which the framework will be ready for testing.
+
+\section{Outline of Final Paper}
+\begin{enumerate}
+    \item Introduction
+    \item Background and Related Work
+    \item Description of the genetic algorithm framework
+    \item Case study 1: optimizing model created from scratch
+    \item Case study 2: optimizing existing model
+    \item Discussion
+    \item Conclusion
+\end{enumerate}
+
+\section{Up-to-date Timeline for Completion}
+
+\begin{enumerate}
+  \item \textbf{Week of March 24}:
+  \begin{itemize}
+    \item Finish GA framework
+    \item Begin comprehensive code testing
+  \end{itemize}
+  \item \textbf{Week of March 31}:
+  \begin{itemize}
+    \item Plug in to ZigZag
+    \item Prepare HPC scripts, run preliminary test
+    \item Find a way to organize the massive amount of generated results
+  \end{itemize}
+  \item \textbf{Week of April 7}:
+  \begin{itemize}
+    \item Optimize if needed
+    \item Begin the measurements that will be in the final paper
+    \item Get started with writing the paper
+  \end{itemize}
+  \item \textbf{Week of April 14}:
+  \begin{itemize}
+    \item Start analyzing results
+    \item The time to redo measurements if something goes wrong
+  \end{itemize}
+  \item \textbf{Week of April 21}:
+  \begin{itemize}
+    \item Potentially begin experimenting with different GA methods (e.g., in term of survivor selection)
+    \item Continue writing paper
+  \end{itemize}
+  \item \textbf{Week of April 28}:
+  \begin{itemize}
+    \item Most of the code and results should be ready by this week
+    \item The week will be spent finalizing the first draft
+  \end{itemize}
+  \item \textbf{Week of May 5}:
+  \begin{itemize}
+    \item Finish first draft
+  \end{itemize}
+\end{enumerate}
+
+
+
+
+%%
+%% The next two lines define the bibliography style to be used, and
+%% the bibliography file.
+%\bibliographystyle{ACM-Reference-Format}
+%\bibliography{references.bib}
+%%
+\end{document}
+\endinput
+%%
+%% End of file `main.tex'.
