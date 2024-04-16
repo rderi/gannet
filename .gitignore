@@ -1,1 +1,6 @@
 learning/
+__pycache__/
+.venv
+data/
+*.ipynb
+*.pkl

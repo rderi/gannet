@@ -46,9 +46,11 @@ def run_ea():
         print("Starting EA...")
         generation = Generation(population_cnt, evo_params, genome_params)
         
-        for _ in range(generations):
+        for i in range(generations):
                 for idx, individual in enumerate(generation.population):
                         print(f'Individual #{idx} fitness: {individual.fitness}')
+                with open(f'generation_{i}.pkl', 'wb') as f:
+                        f.write(generation.serialize())
                 generation.progress_generation()
                 
         print("EA finished.")

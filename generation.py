@@ -1,5 +1,6 @@
 import numpy as np
 import torch
+import dill
 
 from individual import Individual
 from genomes import Genome
@@ -62,3 +63,6 @@ class Generation:
             if torch.backends.mps.is_available()
             else "cpu"
         )
+    
+    def serialize(self):
+        return dill.dumps(self)
