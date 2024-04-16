@@ -39,12 +39,12 @@ class FitnessEvaluator:
         for t in range(epochs):
             print(f"Epoch {t+1}\n-------------------------------")
             self.train()
-            accuracy, loss = self.test()
+            loss, accuracy = self.test()
             accuracy_series[t] = accuracy
             loss_series[t] = loss
             
             #TODO: if we're using anything else than average loss for fitness, then the logic must be changed 
-            if t >= self.evolution_parameters.failure_window: # We can check for failures (early stopping)
+            if t+1 >= self.evolution_parameters.failure_window: # We can check for failures (early stopping)
 
                 if loss_series[t] > loss_series[t-self.evolution_parameters.failure_window] - self.evolution_parameters.failure_threshold \
                     and loss_series[t] > self.evolution_parameters.failure_bypass:
@@ -52,7 +52,7 @@ class FitnessEvaluator:
                     self.individual.failed = True
                     return (accuracy_series, loss_series)
                 
-        return (accuracy_series, loss_series)
+        return (loss_series, accuracy_series)
         
 
 

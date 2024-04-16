@@ -39,7 +39,7 @@ evo_params = EvolutionParameters(mutation_prob, crossover_prob,
 
 genome_params = GenomeParameters(min_hidden_neurons=256, max_hidden_neurons=1024,
                 max_hidden_layers=10,
-                min_batch_size=64, max_epochs=3)
+                min_batch_size=64, min_epochs=4, max_epochs=6)
 
 
 def run_ea():
