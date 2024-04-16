@@ -12,7 +12,7 @@ class FitnessEvaluator:
 
         self.device = device
         self.individual = individual
-        
+        self.evolution_parameters = evolution_params
         self.nn = neural_network.NeuralNetwork(individual.genome, evolution_params)
         self.model = self.nn.to(device)
         self.training_dataloader = DataLoader(evolution_params.training_data, batch_size=individual.genome.batch_size)
@@ -31,6 +31,7 @@ class FitnessEvaluator:
         )
 
     def evaluate(self):
+        self.individual.failed = False #Reset failure
         
         epochs = self.individual.genome.epochs
         accuracy_series = np.zeros(epochs)
@@ -41,6 +42,16 @@ class FitnessEvaluator:
             accuracy, loss = self.test()
             accuracy_series[t] = accuracy
             loss_series[t] = loss
+            
+            #TODO: if we're using anything else than average loss for fitness, then the logic must be changed 
+            if t >= self.evolution_parameters.failure_window: # We can check for failures (early stopping)
+
+                if loss_series[t] > loss_series[t-self.evolution_parameters.failure_window] - self.evolution_parameters.failure_threshold \
+                    and loss_series[t] > self.evolution_parameters.failure_bypass:
+                    print('Individual failed.')
+                    self.individual.failed = True
+                    return (accuracy_series, loss_series)
+                
         return (accuracy_series, loss_series)
         
 

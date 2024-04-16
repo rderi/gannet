@@ -18,6 +18,7 @@ class Individual:
         self.evolution_params = evolution_params
         self.genome_params = genome_params
         self.device = device
+        self.failed = False
         self.measure_fitness()
 
     def mutate(self):
