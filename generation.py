@@ -27,7 +27,8 @@ class Generation:
         '''Mutate the entire population'''
         for individual in self.population:
             individual.mutate()
-            individual.measure_fitness()
+            if individual.fitness_needs_update:
+                individual.measure_fitness()
     
     def crossover_population(self):
         
@@ -35,6 +36,7 @@ class Generation:
         crossover_cnt = ((np.random.random(self.population_cnt)) < self.evolution_params.crossover_probability).sum()
         for _ in range(crossover_cnt):
             parent1, parent2 = Selection.tournament_selection(self.population, self.evolution_params.tournament_size, 2)
+            print(f'Crossing over {parent1.id} and {parent2.id}.')
             res = parent1.crossover(parent2)
             res.measure_fitness()
             self.population.append(res)

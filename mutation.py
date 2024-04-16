@@ -13,6 +13,8 @@ class Mutation:
         genome = individual.genome
         for key in vars(genome):
             if random.random() < probability:
+                individual.fitness_needs_update = True
+                print(f'Mutating individual {individual.id} at key {key}')
                 if key == 'epochs':
                     genome.epochs = np.random.randint(params.min_epochs, params.max_epochs)
                 elif key == 'batch_size':

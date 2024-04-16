@@ -51,7 +51,12 @@ def run_ea():
                         print(f'Individual #{idx} fitness: {individual.fitness}')
                 with open(f'generation_{i}.pkl', 'wb') as f:
                         f.write(generation.serialize())
-                generation.progress_generation()
+                try:
+                        generation.progress_generation()
+                except Exception as e:
+                        print(f'Error: {e}')
+                        with open(f'generation_{i}_DUMP.pkl', 'wb') as f:
+                                f.write(generation.serialize())
                 
         print("EA finished.")
         

@@ -46,11 +46,11 @@ class FitnessEvaluator:
             #TODO: if we're using anything else than average loss for fitness, then the logic must be changed 
             if t+1 >= self.evolution_parameters.failure_window: # We can check for failures (early stopping)
 
-                if loss_series[t] > loss_series[t-self.evolution_parameters.failure_window] - self.evolution_parameters.failure_threshold \
+                if loss_series[t] > loss_series[t-self.evolution_parameters.failure_window+1] - self.evolution_parameters.failure_threshold \
                     and loss_series[t] > self.evolution_parameters.failure_bypass:
-                    print('Individual failed.')
+                    print(f'Individual {self.individual.id} failed.')
                     self.individual.failed = True
-                    return (accuracy_series, loss_series)
+                    return (loss_series[:t], accuracy_series[:t])
                 
         return (loss_series, accuracy_series)
         
@@ -81,9 +81,9 @@ class FitnessEvaluator:
             optimizer.step()
             optimizer.zero_grad()
 
-            if batch % 100 == 0:
+            '''if batch % 100 == 0:
                 loss, current = loss.item(), (batch + 1) * len(X)
-                print(f"loss: {loss:>7f}  [{current:>5d}/{size:>5d}]")
+                print(f"loss: {loss:>7f}  [{current:>5d}/{size:>5d}]")'''
 
 ##############################################################################
 # We also check the model's performance against the test dataset to ensure it is learning.

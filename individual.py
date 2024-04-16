@@ -6,11 +6,16 @@ from genomes import Genome
 from fitness import FitnessEvaluator
 
 class Individual:
+    next_id = 0
     def __init__(self,
                  evolution_params : EvolutionParameters, 
                  genome_params : GenomeParameters, 
                  device,
                  genome = None):
+        
+        self.id = Individual.next_id
+        Individual.next_id += 1
+        
         if genome:
             self.genome = genome
         else:
@@ -19,6 +24,7 @@ class Individual:
         self.genome_params = genome_params
         self.device = device
         self.failed = False
+        self.fitness_needs_update = True
         self.measure_fitness()
 
     def mutate(self):
@@ -38,6 +44,7 @@ class Individual:
         #TOFO: refine; the next operation should be done in fitness.py
         #TODO: does the indexing make sense here even??
         self.fitness = -self.fitness[0][-1] #Take the last accuracy value
+        self.fitness_needs_update = False
         
         
         
