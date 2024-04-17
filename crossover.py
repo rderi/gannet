@@ -24,7 +24,7 @@ class Crossover:
             if random.random() < 0.5:
                   vars(g3)[key] = vars(g2)[key]
         g3._verify_hidden_layers()
-        #g3.measure_fitness()
+        g3._verify_neuron_cnt()
         return g3
 
         

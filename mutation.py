@@ -21,8 +21,7 @@ class Mutation:
                     genome.batch_size = np.random.randint(params.min_batch_size, params.max_batch_size)
                 elif key == 'hidden_layers':
                     genome.hidden_layers = np.random.randint(params.min_hidden_layers, params.max_hidden_layers)
-                    genome._verify_hidden_layers()
-                    genome._verify_neuron_cnt()
+                    
                 elif key == 'activation_fns':
                     idx = np.random.randint(0, genome.hidden_layers)
                     genome.activation_fns[idx] = random.choice(params.activation_functions)
@@ -32,5 +31,6 @@ class Mutation:
                     
                     #Avoid reducing number of features when activation function is not linear
                     #TODO: does this put a bottleneck on mutation?
-                    genome._verify_neuron_cnt(idx)
+                genome._verify_hidden_layers()
+                genome._verify_neuron_cnt()
         
