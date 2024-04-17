@@ -1,5 +1,7 @@
 import numpy as np
 import torch
+import sys
+
 from individual import Individual
 from neural_network import NeuralNetwork
 from fitness import FitnessEvaluator
@@ -47,6 +49,7 @@ def run_ea():
         generation = Generation(population_cnt, evo_params, genome_params)
         
         for i in range(generations):
+                print(f'############\nGeneration {i+1}:\n')
                 for idx, individual in enumerate(generation.population):
                         print(f'Individual #{idx} fitness: {individual.fitness}')
                 with open(f'generation_{i}.pkl', 'wb') as f:
@@ -54,9 +57,10 @@ def run_ea():
                 try:
                         generation.progress_generation()
                 except Exception as e:
-                        print(f'Error: {e}')
+                        print(f'Error in generation {i+1}: {e}')
                         with open(f'generation_{i}_DUMP.pkl', 'wb') as f:
                                 f.write(generation.serialize())
+                        sys.exit(1)
                 
         print("EA finished.")
         
